@@ -6,4 +6,5 @@ export const tr = {
   invalid_email: 'Geçersiz e-posta',
   email_is_required: 'E-posta gereklidir',
   password_is_required: 'Şifre gereklidir',
+  language: 'Dil',
 };

@@ -6,4 +6,5 @@ export const en = {
   invalid_email: 'Invalid email',
   email_is_required: 'Email is required',
   password_is_required: 'Password is required',
+  language: 'Language',
 };
