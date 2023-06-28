@@ -1,22 +1,11 @@
-import {
-  Box,
-  Button,
-  Card,
-  Center,
-  HStack,
-  Input,
-  Text,
-  VStack,
-} from 'native-base';
+import {Box, Card, VStack} from 'native-base';
 import React from 'react';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import {useLocalization} from '../../contexts/LocalizationContext';
 import LoginForm from './components/LoginForm';
 import ForgotPasswordText from './components/ForgotPasswordText';
 import AppTitle from '../../components/shared/AppTitle';
+import LanguagePicker from '../../components/Drawer/LanguagePicker';
 
 const Login = () => {
-  const {strings} = useLocalization();
   return (
     <Box
       flex={1}
@@ -39,6 +28,7 @@ const Login = () => {
           <AppTitle />
           <LoginForm />
           <ForgotPasswordText />
+          <LanguagePicker />
         </VStack>
       </Card>
     </Box>
