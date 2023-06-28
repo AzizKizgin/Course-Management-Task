@@ -5,7 +5,10 @@ import Login from '../screens/Login';
 const AuthenticationNavigation = () => {
   const Stack = createNativeStackNavigator();
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}>
       <Stack.Screen name="Login" component={Login} />
     </Stack.Navigator>
   );
