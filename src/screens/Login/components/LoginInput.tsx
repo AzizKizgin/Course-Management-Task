@@ -1,6 +1,7 @@
 import React, {ChangeEvent, FC} from 'react';
 import {Box, Input, VStack, Text} from 'native-base';
 import ShakingBox from '../../../components/shared/ShakingBox';
+import {useLocalization} from '../../../contexts/LocalizationContext';
 
 interface Props {
   isButtonPressed: boolean;
@@ -19,6 +20,7 @@ const LoginInput: FC<Props> = props => {
     placeholder,
     handleChange,
   } = props;
+  const {strings} = useLocalization();
   return (
     <VStack>
       <ShakingBox
@@ -36,7 +38,7 @@ const LoginInput: FC<Props> = props => {
       </ShakingBox>
       <Box>
         <Text color={'error.600'} textAlign={'right'}>
-          {errors}
+          {strings[errors || '']}
         </Text>
       </Box>
     </VStack>
