@@ -1,17 +1,19 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {FC, useEffect, useState} from 'react';
 import {Box, HStack, Icon, Image, Text} from 'native-base';
 import RNPickerSelect from 'react-native-picker-select';
-import {StyleSheet} from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {useLocalization} from '../../contexts/LocalizationContext';
 import {storage} from '../../config/storage';
 import theme from '../../config/theme';
 import {turkeyFlag, ukFlag} from '../../utils/consts';
 
-const LanguagePicker = () => {
+interface Props {
+  inDrawer?: boolean;
+}
+const LanguagePicker: FC<Props> = ({inDrawer = false}) => {
   const {changeLanguage, strings} = useLocalization();
   const [language, setLanguage] = useState('en');
-  const ref = useRef<RNPickerSelect>(null);
+
   useEffect(() => {
     const getLanguage = () => {
       const savedLanguage = storage.getString('language');
@@ -22,18 +24,26 @@ const LanguagePicker = () => {
     getLanguage();
   }, []);
   return (
-    <Box style={styles.pickerSelectStyles}>
+    <Box paddingX={inDrawer ? 4 : undefined}>
       <Text color={theme.colors.orange.dark}>{strings.language}</Text>
       <RNPickerSelect
-        ref={ref}
+        useNativeAndroidPickerStyle={false}
         style={{
-          inputAndroid: {
-            color: 'black',
-            fontSize: 16,
-          },
           inputIOS: {
-            color: 'black',
             fontSize: 16,
+            borderRadius: 4,
+            paddingRight: 30,
+            height: 42,
+          },
+          inputAndroid: {
+            fontSize: 16,
+            borderRadius: 4,
+            paddingRight: 30,
+            height: 42,
+          },
+          iconContainer: {
+            top: 10,
+            right: 8,
           },
         }}
         onValueChange={(value: any) => {
@@ -48,17 +58,14 @@ const LanguagePicker = () => {
         //@ts-ignore
         Icon={() => {
           return (
-            <HStack alignItems="center" space={2}>
+            <HStack alignItems="center">
               {language === 'tr' ? (
                 <Icon
-                  as={<Image source={turkeyFlag} alt="Mortarboard" />}
+                  as={<Image source={turkeyFlag} alt="turkeyFlag" />}
                   size={22}
                 />
               ) : (
-                <Icon
-                  as={<Image source={ukFlag} alt="Mortarboard" />}
-                  size={22}
-                />
+                <Icon as={<Image source={ukFlag} alt="ukFlag" />} size={22} />
               )}
               <Icon
                 as={<MaterialCommunityIcons name="chevron-down" />}
@@ -74,14 +81,3 @@ const LanguagePicker = () => {
 };
 
 export default LanguagePicker;
-
-const styles = StyleSheet.create({
-  pickerSelectStyles: {
-    marginHorizontal: 0,
-    paddingHorizontal: 10,
-    borderTopRightRadius: 20,
-    borderBottomRightRadius: 20,
-    marginRight: 10,
-    borderColor: 'transparent',
-  },
-});
