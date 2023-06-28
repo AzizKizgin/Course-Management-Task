@@ -5,16 +5,18 @@ import {useLoginSchema} from '../../../config/validation';
 import {useLocalization} from '../../../contexts/LocalizationContext';
 import ShakingBox from '../../../components/shared/ShakingBox';
 import LoginInput from './LoginInput';
+import {useUser} from '../../../contexts/UserContext';
 
 const LoginForm = () => {
   const {strings} = useLocalization();
+  const {login} = useUser();
   const [isButtonPressed, setIsButtonPressed] = useState(false);
   return (
     <Formik
       initialValues={{email: '', password: ''}}
-      validationSchema={useLoginSchema(strings)}
+      validationSchema={useLoginSchema}
       onSubmit={values => {
-        console.log(values);
+        login();
       }}>
       {({handleChange, handleBlur, handleSubmit, values, errors}) => (
         <VStack space={2}>
