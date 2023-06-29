@@ -7,8 +7,10 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {mortarBoard, mortarBoardOutline} from '../utils/consts';
 import theme from '../config/theme';
+import {useLocalization} from '../contexts/LocalizationContext';
 
 const Drawer = () => {
+  const {strings} = useLocalization();
   const Drawer = createDrawerNavigator();
   return (
     <Drawer.Navigator
@@ -131,12 +133,54 @@ const Drawer = () => {
           }
         },
       })}>
-      <Drawer.Screen name="Home" component={Home} />
-      <Drawer.Screen name="Course" component={Course} />
-      <Drawer.Screen name="Students" component={Students} />
-      <Drawer.Screen name="Payment" component={Payment} />
-      <Drawer.Screen name="Reports" component={Report} />
-      <Drawer.Screen name="Settings" component={Settings} />
+      <Drawer.Screen
+        name="Home"
+        component={Home}
+        options={{
+          drawerLabel: strings.home,
+          headerTitle: strings.home,
+        }}
+      />
+      <Drawer.Screen
+        name="Course"
+        component={Course}
+        options={{
+          drawerLabel: strings.course,
+          headerTitle: strings.course,
+        }}
+      />
+      <Drawer.Screen
+        name="Students"
+        component={Students}
+        options={{
+          drawerLabel: strings.students,
+          headerTitle: strings.students,
+        }}
+      />
+      <Drawer.Screen
+        name="Payment"
+        component={Payment}
+        options={{
+          drawerLabel: strings.payments,
+          headerTitle: strings.payments,
+        }}
+      />
+      <Drawer.Screen
+        name="Reports"
+        component={Report}
+        options={{
+          drawerLabel: strings.reports,
+          headerTitle: strings.reports,
+        }}
+      />
+      <Drawer.Screen
+        name="Settings"
+        component={Settings}
+        options={{
+          drawerLabel: strings.settings,
+          headerTitle: strings.settings,
+        }}
+      />
     </Drawer.Navigator>
   );
 };

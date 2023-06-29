@@ -23,7 +23,7 @@ const AppDrawer = (props: DrawerContentComponentProps) => {
       </DrawerContentScrollView>
       <DrawerItem
         style={{marginBottom: 40}}
-        label="Logout"
+        label={strings.logout}
         labelStyle={{fontSize: 16, color: theme.colors.black}}
         onPress={() => {
           Alert.alert(
