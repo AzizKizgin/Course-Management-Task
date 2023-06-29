@@ -17,4 +17,8 @@ export const tr = {
   cancel: 'İptal',
   loading: 'Yükleniyor...',
   limit: 'Limit',
+  home: 'Anasayfa',
+  course: 'Kurs',
+  reports: 'Raporlar',
+  settings: 'Ayarlar',
 };

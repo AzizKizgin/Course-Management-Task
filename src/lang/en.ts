@@ -17,4 +17,8 @@ export const en = {
   cancel: 'Cancel',
   loading: 'Loading...',
   limit: 'Limit',
+  home: 'Home',
+  course: 'Course',
+  reports: 'Reports',
+  settings: 'Settings',
 };
