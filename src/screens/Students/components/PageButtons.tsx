@@ -36,7 +36,13 @@ const PageButtons: FC<PageButtonsProps> = ({page, setPage, limit}) => {
           color={theme.colors.white}
         />
       </Pressable>
-      <Pressable onPress={() => setPage(page + 1)} padding={2}>
+      <Pressable
+        onPress={() => {
+          if (last < 100) {
+            setPage(page + 1);
+          }
+        }}
+        padding={2}>
         <Icon
           as={Ionicons}
           name="chevron-forward-outline"
