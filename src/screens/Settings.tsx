@@ -1,11 +1,12 @@
-import {View, Text} from 'react-native';
+import {Box} from 'native-base';
 import React from 'react';
+import LanguagePicker from '../components/Drawer/LanguagePicker';
 
 const Settings = () => {
   return (
-    <View>
-      <Text>Settings</Text>
-    </View>
+    <Box flex={1} justifyContent="center" paddingX={6}>
+      <LanguagePicker />
+    </Box>
   );
 };
 
