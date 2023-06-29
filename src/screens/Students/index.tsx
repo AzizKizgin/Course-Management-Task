@@ -8,9 +8,8 @@ import StudentItem from './components/StudentItem';
 import SearchBar from './components/SearchBar';
 import {useQuery} from '@tanstack/react-query';
 import {getAllStudents} from '../../utils/api';
-import {ActivityIndicator} from 'react-native';
+import {ActivityIndicator, RefreshControl} from 'react-native';
 import {useLocalization} from '../../contexts/LocalizationContext';
-import LimitPicker from './components/LimitPicker';
 import ListFooter from './components/ListFooter';
 
 const Students = () => {
@@ -40,6 +39,16 @@ const Students = () => {
         </Center>
       ) : (
         <FlatList
+          refreshControl={
+            <RefreshControl
+              refreshing={isFetching}
+              onRefresh={() => {
+                setLimit(5);
+                setPage(0);
+                refetch();
+              }}
+            />
+          }
           contentContainerStyle={{paddingBottom: 50}}
           data={students?.users}
           renderItem={({item, index}) => (
