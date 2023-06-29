@@ -11,45 +11,43 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import theme from '../config/theme';
 import {useUser} from '../contexts/UserContext';
 import {Alert} from 'react-native';
+import {useLocalization} from '../contexts/LocalizationContext';
 
 const AppDrawer = (props: DrawerContentComponentProps) => {
-  const {navigation} = props;
+  const {strings} = useLocalization();
   const {logout} = useUser();
   return (
     <Box flex={1} backgroundColor="orange.100">
       <DrawerContentScrollView>
         <DrawerItemList {...props} />
-        <DrawerItem
-          label="Logout"
-          labelStyle={{fontSize: 16, color: theme.colors.black}}
-          onPress={() => {
-            Alert.alert(
-              'Logout',
-              'Are you sure you want to logout?',
-              [
-                {
-                  text: 'Cancel',
-                  onPress: () => console.log('Cancel Pressed'),
-                  style: 'cancel',
-                },
-                {text: 'Logout', onPress: () => logout()},
-              ],
-              {cancelable: false},
-            );
-          }}
-          icon={() => (
-            <Icon
-              color={theme.colors.black}
-              size={25}
-              name="exit-outline"
-              as={Ionicons}
-            />
-          )}
-        />
       </DrawerContentScrollView>
-      <VStack marginBottom={10} space={4}>
-        <LanguagePicker inDrawer={true} />
-      </VStack>
+      <DrawerItem
+        style={{marginBottom: 40}}
+        label="Logout"
+        labelStyle={{fontSize: 16, color: theme.colors.black}}
+        onPress={() => {
+          Alert.alert(
+            strings.logout,
+            strings.are_you_sure_want_to_logout,
+            [
+              {
+                text: strings.cancel,
+                style: 'cancel',
+              },
+              {text: strings.logout, onPress: () => logout()},
+            ],
+            {cancelable: false},
+          );
+        }}
+        icon={() => (
+          <Icon
+            color={theme.colors.black}
+            size={25}
+            name="exit-outline"
+            as={Ionicons}
+          />
+        )}
+      />
     </Box>
   );
 };
