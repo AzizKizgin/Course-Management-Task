@@ -7,10 +7,7 @@ import {storage} from '../../config/storage';
 import theme from '../../config/theme';
 import {turkeyFlag, ukFlag} from '../../utils/consts';
 
-interface Props {
-  inDrawer?: boolean;
-}
-const LanguagePicker: FC<Props> = ({inDrawer = false}) => {
+const LanguagePicker = () => {
   const {changeLanguage, strings} = useLocalization();
   const [language, setLanguage] = useState('en');
 
@@ -24,7 +21,7 @@ const LanguagePicker: FC<Props> = ({inDrawer = false}) => {
     getLanguage();
   }, []);
   return (
-    <Box paddingX={inDrawer ? 4 : undefined}>
+    <Box>
       <Text color={theme.colors.orange.dark}>{strings.language}</Text>
       <RNPickerSelect
         useNativeAndroidPickerStyle={false}
