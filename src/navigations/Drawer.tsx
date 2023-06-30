@@ -8,6 +8,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import {mortarBoard, mortarBoardOutline} from '../utils/consts';
 import theme from '../config/theme';
 import {useLocalization} from '../contexts/LocalizationContext';
+import StudentNavigation from './StudentNavigation';
 
 const Drawer = () => {
   const {strings} = useLocalization();
@@ -151,7 +152,7 @@ const Drawer = () => {
       />
       <Drawer.Screen
         name="Students"
-        component={Students}
+        component={StudentNavigation}
         options={{
           drawerLabel: strings.students,
           headerTitle: strings.students,

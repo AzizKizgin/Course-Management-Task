@@ -5,3 +5,5 @@ export {default as Course} from './Course';
 export {default as Payment} from './Payment';
 export {default as Report} from './Report';
 export {default as Settings} from './Settings';
+export {default as SearchStudent} from './SearchStudent';
+export {default as StudentDetail} from './StudentDetail';
