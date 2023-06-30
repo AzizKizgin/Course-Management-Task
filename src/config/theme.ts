@@ -29,6 +29,9 @@ const theme = extendTheme({
           _android: {
             selectionColor: 'orange.dark',
           },
+          _ios: {
+            selectionColor: 'orange.dark',
+          },
           borderColor: 'orange.dark',
           selectionColor: 'orange.dark',
           backgroundColor: 'transparent',
