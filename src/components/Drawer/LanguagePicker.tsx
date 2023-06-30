@@ -6,6 +6,7 @@ import {useLocalization} from '../../contexts/LocalizationContext';
 import {storage} from '../../config/storage';
 import theme from '../../config/theme';
 import {turkeyFlag, ukFlag} from '../../utils/consts';
+import {StyleSheet} from 'react-native';
 
 const LanguagePicker = () => {
   const {changeLanguage, strings} = useLocalization();
@@ -26,18 +27,8 @@ const LanguagePicker = () => {
       <RNPickerSelect
         useNativeAndroidPickerStyle={false}
         style={{
-          inputIOS: {
-            fontSize: 16,
-            borderRadius: 4,
-            paddingRight: 30,
-            height: 42,
-          },
-          inputAndroid: {
-            fontSize: 16,
-            borderRadius: 4,
-            paddingRight: 30,
-            height: 42,
-          },
+          inputIOS: styles.select,
+          inputAndroid: styles.select,
           iconContainer: {
             top: 10,
             right: 8,
@@ -78,3 +69,15 @@ const LanguagePicker = () => {
 };
 
 export default LanguagePicker;
+
+const styles = StyleSheet.create({
+  select: {
+    fontSize: 16,
+    borderRadius: 8,
+    paddingRight: 30,
+    height: 42,
+    borderWidth: 1,
+    borderColor: theme.colors.orange.dark,
+    paddingLeft: 10,
+  },
+});
