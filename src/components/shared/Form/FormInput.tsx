@@ -1,6 +1,6 @@
 import React, {ChangeEvent, FC} from 'react';
 import {Box, Input, VStack, Text} from 'native-base';
-import ShakingBox from '../../../components/shared/ShakingBox';
+import ShakingBox from '../ShakingBox';
 import {useLocalization} from '../../../contexts/LocalizationContext';
 
 interface Props {
@@ -11,7 +11,7 @@ interface Props {
   placeholder: string;
   handleChange: (e: string | ChangeEvent<any>) => void;
 }
-const LoginInput: FC<Props> = props => {
+const FormInput: FC<Props> = props => {
   const {
     isButtonPressed,
     setIsButtonPressed,
@@ -45,4 +45,4 @@ const LoginInput: FC<Props> = props => {
   );
 };
 
-export default LoginInput;
+export default FormInput;
