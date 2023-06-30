@@ -6,7 +6,7 @@ import {
   DrawerItem,
   DrawerItemList,
 } from '@react-navigation/drawer';
-import LanguagePicker from '../components/Drawer/LanguagePicker';
+import LanguagePicker from '../components/shared/LanguagePicker';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import theme from '../config/theme';
 import {useUser} from '../contexts/UserContext';

@@ -1,6 +1,6 @@
 import {Box} from 'native-base';
 import React from 'react';
-import LanguagePicker from '../components/Drawer/LanguagePicker';
+import LanguagePicker from '../components/shared/LanguagePicker';
 
 const Settings = () => {
   return (

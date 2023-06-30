@@ -3,7 +3,7 @@ import React from 'react';
 import LoginForm from './components/LoginForm';
 import ForgotPasswordText from './components/ForgotPasswordText';
 import AppTitle from '../../components/shared/AppTitle';
-import LanguagePicker from '../../components/Drawer/LanguagePicker';
+import LanguagePicker from '../../components/shared/LanguagePicker';
 
 const Login = () => {
   return (
