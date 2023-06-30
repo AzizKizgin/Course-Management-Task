@@ -18,3 +18,9 @@ export type StudentResponse = {
   skip: number;
   limit: number;
 };
+
+export type StudentNavigationParams = {
+  StudentList: undefined;
+  StudentDetail: {studentId: number} | undefined;
+  SearchStudent: {query: string};
+};
