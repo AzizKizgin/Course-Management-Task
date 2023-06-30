@@ -10,7 +10,7 @@ import {useLocalization} from '../../contexts/LocalizationContext';
 import ListFooter from './components/ListFooter';
 
 import {useQuery} from '@tanstack/react-query';
-import {StudentResponse} from '../../types/types';
+import {StudentsResponse} from '../../types/types';
 import {searchStudents} from '../../utils/api';
 import AddButton from '../../components/shared/AddButton';
 import {useDebounce} from 'use-debounce';
@@ -26,7 +26,7 @@ const Students = () => {
     isLoading,
     isFetching,
     refetch,
-  } = useQuery<StudentResponse>(['students', debouncedQuery], () => {
+  } = useQuery<StudentsResponse>(['students', debouncedQuery], () => {
     return searchStudents(debouncedQuery, limit, page * limit);
   });
 

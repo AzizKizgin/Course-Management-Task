@@ -9,10 +9,9 @@ export type Student = {
   company: {
     name: string;
   };
-  email: string;
 };
 
-export type StudentResponse = {
+export type StudentsResponse = {
   users: Student[];
   total: number;
   skip: number;
