@@ -18,12 +18,13 @@ const LimitPicker: FC<LimitPickerProps> = ({limit, setLimit}) => {
       shadow={2}
       paddingX={2}
       alignItems="center"
-      backgroundColor={theme.colors.orange.light}
+      backgroundColor={theme.colors.orange.dark}
       borderRadius={4}>
       <Text color={theme.colors.white} fontSize="md">
         {strings.limit + ': '}
       </Text>
       <RNPickerSelect
+        placeholder={{}}
         useNativeAndroidPickerStyle={false}
         style={{
           inputIOS: {
