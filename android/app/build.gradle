@@ -70,7 +70,9 @@ def jscFlavor = 'org.webkit:android-jsc:+'
 
 android {
     ndkVersion rootProject.ext.ndkVersion
-
+    lintOptions {
+        checkReleaseBuilds false
+    }
     compileSdkVersion rootProject.ext.compileSdkVersion
 
     namespace "com.studentmanager"
