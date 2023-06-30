@@ -21,4 +21,16 @@ export const tr = {
   course: 'Kurs',
   reports: 'Raporlar',
   settings: 'Ayarlar',
+  student_detail: 'Öğrenci Detayı',
+  search_student: 'Öğrenci Ara',
+  yes: 'Evet',
+  no: 'Hayır',
+  are_you_sure_want_to_delete_student:
+    'Öğrenciyi silmek istediğinize emin misiniz?',
+  delete: 'Sil',
+  success: 'Başarılı',
+  student_deleted_successfully: 'Öğrenci başarıyla silindi',
+  error: 'Hata',
+  something_went_wrong: 'Bir şeyler ters gitti',
+  add_student: 'Öğrenci Ekle',
 };
