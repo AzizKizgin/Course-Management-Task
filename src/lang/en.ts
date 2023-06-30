@@ -32,4 +32,11 @@ export const en = {
   error: 'Error',
   something_went_wrong: 'Something went wrong',
   add_student: 'Add Student',
+  first_name_is_required: 'First name is required',
+  last_name_is_required: 'Last name is required',
+  phone_is_required: 'Phone is required',
+  username_is_required: 'Username is required',
+  company_name_is_required: 'Company name is required',
+  student_added_successfully: 'Student added successfully',
+  student_updated_successfully: 'Student updated successfully',
 };

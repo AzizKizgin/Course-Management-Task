@@ -33,4 +33,11 @@ export const tr = {
   error: 'Hata',
   something_went_wrong: 'Bir şeyler ters gitti',
   add_student: 'Öğrenci Ekle',
+  first_name_is_required: 'İsim gereklidir',
+  last_name_is_required: 'Soyisim gereklidir',
+  phone_is_required: 'Telefon gereklidir',
+  username_is_required: 'Kullanıcı adı gereklidir',
+  company_name_is_required: 'Şirket adı gereklidir',
+  student_added_successfully: 'Öğrenci başarıyla eklendi',
+  student_updated_successfully: 'Öğrenci başarıyla güncellendi',
 };
