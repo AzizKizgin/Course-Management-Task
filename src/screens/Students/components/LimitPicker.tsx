@@ -14,7 +14,7 @@ const LimitPicker: FC<LimitPickerProps> = ({limit, setLimit}) => {
   const {strings} = useLocalization();
   return (
     <HStack
-      maxW="90"
+      maxW="100"
       shadow={2}
       paddingX={2}
       alignItems="center"
@@ -30,7 +30,7 @@ const LimitPicker: FC<LimitPickerProps> = ({limit, setLimit}) => {
           inputIOS: {
             fontSize: 16,
             borderRadius: 4,
-            paddingRight: 30,
+            paddingRight: 40,
             height: 42,
             color: theme.colors.white,
           },
