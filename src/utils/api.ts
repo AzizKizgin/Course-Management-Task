@@ -17,9 +17,15 @@ export const getStudentsById = (id: string) => {
     .catch(error => console.log(error));
 };
 
-export const searchStudents = (name: string) => {
+export const searchStudents = (
+  name: string,
+  limit: number = 5,
+  skip: number = 0,
+) => {
   const query = queryString.stringify({
     q: name,
+    limit,
+    skip,
   });
   return fetch(urls.searchStudents + '?' + query)
     .then(response => response.json())
@@ -49,7 +55,7 @@ export const updateStudents = (student: Student) => {
     .catch(error => console.log(error));
 };
 
-export const deleteStudents = (id: string) => {
+export const deleteStudents = async (id: number) => {
   fetch(urls.getAllStudents + '/' + id, {
     method: 'DELETE',
   })
