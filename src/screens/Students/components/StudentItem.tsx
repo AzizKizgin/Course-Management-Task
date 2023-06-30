@@ -16,9 +16,10 @@ import {Student, StudentNavigationParams} from '../../../types/types';
 import {NavigationProp, useNavigation} from '@react-navigation/native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {useMutation, useQueryClient} from '@tanstack/react-query';
-import {deleteStudents} from '../../../utils/api';
+import {deleteStudent} from '../../../utils/api';
 import {Alert} from 'react-native';
 import {useLocalization} from '../../../contexts/LocalizationContext';
+import DeleteButton from '../../../components/shared/DeleteButton';
 
 interface StudentItemProps {
   student: Student;
@@ -36,7 +37,7 @@ const StudentItem: FC<StudentItemProps> = ({student, index}) => {
   };
 
   const {mutate: deleteStudentMutate, isLoading} = useMutation({
-    mutationFn: deleteStudents,
+    mutationFn: deleteStudent,
     onSuccess: () => {
       Alert.alert(strings.success, strings.student_deleted_successfully);
       queryCache.invalidateQueries(['students']);
@@ -100,14 +101,7 @@ const StudentItem: FC<StudentItemProps> = ({student, index}) => {
             alignItems="center"
             justifyContent="center"
             alignSelf="center">
-            <Pressable onPress={onDelete}>
-              <Icon
-                as={MaterialCommunityIcons}
-                name="delete-outline"
-                size={7}
-                color={theme.colors.black}
-              />
-            </Pressable>
+            <DeleteButton onDelete={onDelete} color={theme.colors.black} />
             <Icon
               as={Ionicons}
               name="chevron-forward-outline"
