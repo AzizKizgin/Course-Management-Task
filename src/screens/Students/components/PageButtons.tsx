@@ -7,9 +7,11 @@ interface PageButtonsProps {
   page: number;
   setPage: (page: number) => void;
   limit: number;
+  total: number;
 }
 
-const PageButtons: FC<PageButtonsProps> = ({page, setPage, limit}) => {
+const PageButtons: FC<PageButtonsProps> = props => {
+  const {page, setPage, limit, total} = props;
   const first = page * limit + 1;
   const last = limit * (page + 1);
   return (
@@ -17,10 +19,10 @@ const PageButtons: FC<PageButtonsProps> = ({page, setPage, limit}) => {
       shadow={2}
       paddingX={2}
       alignItems="center"
-      backgroundColor={theme.colors.orange.light}
+      backgroundColor={theme.colors.orange.dark}
       borderRadius={4}>
       <Text color={theme.colors.white} fontSize="md" marginLeft={2}>
-        {`${first} - ${last} of ` + '100'}
+        {`${first} - ${last} of ${total}`}
       </Text>
       <Pressable
         onPress={() => {
@@ -38,7 +40,7 @@ const PageButtons: FC<PageButtonsProps> = ({page, setPage, limit}) => {
       </Pressable>
       <Pressable
         onPress={() => {
-          if (last < 100) {
+          if (last < total) {
             setPage(page + 1);
           }
         }}
