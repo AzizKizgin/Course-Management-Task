@@ -3,9 +3,9 @@ import {Button, Input, Text, VStack} from 'native-base';
 import React, {useState} from 'react';
 import {useLoginSchema} from '../../../config/validation';
 import {useLocalization} from '../../../contexts/LocalizationContext';
-import ShakingBox from '../../../components/shared/ShakingBox';
-import LoginInput from './LoginInput';
 import {useUser} from '../../../contexts/UserContext';
+import FormInput from '../../../components/shared/Form/FormInput';
+import FormButton from '../../../components/shared/Form/FormButton';
 
 const LoginForm = () => {
   const {strings} = useLocalization();
@@ -20,7 +20,7 @@ const LoginForm = () => {
       }}>
       {({handleChange, handleBlur, handleSubmit, values, errors}) => (
         <VStack space={2}>
-          <LoginInput
+          <FormInput
             isButtonPressed={isButtonPressed}
             setIsButtonPressed={setIsButtonPressed}
             errors={errors.email}
@@ -28,7 +28,7 @@ const LoginForm = () => {
             placeholder={'Email'}
             handleChange={handleChange('email')}
           />
-          <LoginInput
+          <FormInput
             isButtonPressed={isButtonPressed}
             setIsButtonPressed={setIsButtonPressed}
             errors={errors.password}
@@ -36,22 +36,11 @@ const LoginForm = () => {
             placeholder={'Password'}
             handleChange={handleChange('password')}
           />
-          <Button
-            borderRadius={10}
-            alignItems={'center'}
-            backgroundColor={'orange.dark'}
-            onPress={() => {
-              setIsButtonPressed(true);
-              handleSubmit();
-            }}>
-            <Text
-              color={'white'}
-              fontWeight={'bold'}
-              fontSize={16}
-              textTransform={'capitalize'}>
-              {strings.signIn}
-            </Text>
-          </Button>
+          <FormButton
+            setIsButtonPressed={setIsButtonPressed}
+            handleSubmit={handleSubmit}
+            label={strings.signIn}
+          />
         </VStack>
       )}
     </Formik>
