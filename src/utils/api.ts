@@ -10,7 +10,7 @@ export const getAllStudents = (limit: number = 5, skip: number = 0) => {
     .catch(error => console.log(error));
 };
 
-export const getStudentsById = (id: string) => {
+export const getStudentsById = (id: number) => {
   return fetch(urls.getAllStudents + '/' + id)
     .then(response => response.json())
     .then(data => data)
@@ -33,7 +33,7 @@ export const searchStudents = (
     .catch(error => console.log(error));
 };
 
-export const addStudents = (student: Student) => {
+export const addStudent = (student: Student) => {
   return fetch(urls.addStudents, {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
@@ -44,7 +44,7 @@ export const addStudents = (student: Student) => {
     .catch(error => console.log(error));
 };
 
-export const updateStudents = (student: Student) => {
+export const updateStudent = (student: Student) => {
   return fetch(urls.getAllStudents + '/' + student.id, {
     method: 'PUT',
     headers: {'Content-Type': 'application/json'},
@@ -55,7 +55,7 @@ export const updateStudents = (student: Student) => {
     .catch(error => console.log(error));
 };
 
-export const deleteStudents = async (id: number) => {
+export const deleteStudent = async (id: number) => {
   fetch(urls.getAllStudents + '/' + id, {
     method: 'DELETE',
   })
